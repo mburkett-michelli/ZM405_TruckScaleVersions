@@ -1,0 +1,12 @@
+Version 1.4.1.0 - Corrected issue with Weighing Fleet with zero lbs on scale.
+                - It would leave the scale in NET mode after displaying error.
+
+Version 1.4.1.1 - Corrected Print Format Inbound and Outbound.
+                  - Removed #CR #LF from bottom and replaced with
+                  - #ESCq  fixing behaviour with eject / grab on TMU295
+
+Version 1.5.0.0 - Stop button will stop and clear an already started weigh in or weigh out.
+                - Until another transaction is started pressing 'Print' will reprint the last ticket.
+
+Version 1.5.2.0 - User can use the Tare button to weigh out a truck that didn't get an inbound weight
+

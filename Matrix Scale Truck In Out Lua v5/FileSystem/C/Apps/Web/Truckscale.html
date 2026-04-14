@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='-1'>
+<meta http-equiv='pragma' content='no-cache'>
+
+<meta charset="utf-8">
+   
+<meta name="author" content="Matrix Scale Service">
+
+<title>Matrix Scale Service</title>
+    <script src="javascripts/jquery-3.1.1.min.js"></script>
+     <link rel="stylesheet" href="stylesheets/w3.css">
+
+    <script src="javascripts/request.js" type="text/javascript"></script>
+
+
+
+<style type='text/css'>
+
+
+p.one
+{
+width: 100px; height: 100px;
+border-style: solid;
+border-color: #0000ff
+}
+
+@font-face { 
+font-family: 'DSEG7 Modern'; 
+src: url('DSEG7Modern-Regular.woff') format('woff');
+}
+
+
+.bold-green-font {
+    font-weight: bold;
+    color: black;
+  }
+  
+.oddRows {color:#000 ;background-color:#ffe7e7}
+  
+	
+.centerDisplay {
+ color: green;
+ font-family: Arial, Geneva, sans-serif ;
+ position: absolute;
+ top: 260px;
+ left: 20px;
+ font-size: 22px;
+ text-align: right;
+ width: 2px ; 
+}
+	
+.motionDisplay {
+ color: green;
+ font-family: Arial, Geneva, sans-serif ;
+ position: absolute;
+ top: 300px;
+ left: 20px;
+ font-size: 22px;
+ text-align: right;
+ width: 12px ; 
+}
+	
+.weightDisplay {
+ color: black;
+ font-family: DSEG7 Modern, Arial ;
+ position: absolute;
+ top: 300px;
+ left: 100px;
+ font-size: 30px;
+ text-align: right;
+ width: 280px ; 
+}
+
+.unitsDisplay { 
+ color: black;
+ font-family: Arial, Geneva ;
+ position: absolute;
+ top: 300px;
+ left: 390px;
+ font-size: 22px;
+ letter-spacing: 2px;
+}
+
+
+  </style>
+
+<a href="http://www.matrixscale.com" title="Matrix Scale Service"><img
+		src="logo.png" alt="Matrix Scale Service" width="600" height="110"
+		border="0" > 
+</a>
+ 
+
+</head>
+<body class="w3-container  ">
+
+</header>
+
+	<a style="position:absolute; top:50px; left:650px;" href="Monday.txt">Monday</a></div>
+	<a style="position:absolute; top:100px; left:650px;" href="Tuesday.txt">Tuesday</a></div>
+	<a style="position:absolute; top:150px; left:650px;" href="Wednesday.txt">Wednesday</a></div>
+	<a style="position:absolute; top:200px; left:650px;" href="Thursday.txt">Thursday</a></div>
+	<a style="position:absolute; top:250px; left:650px;" href="Friday.txt">Friday</a></div>
+	<a style="position:absolute; top:300px; left:650px;" href="Saturday.txt">Saturday</a></div>
+	<a style="position:absolute; top:350px; left:650px;" href="Sunday.txt">Sunday</a></div>
+	<a style="position:absolute; top:50px; left:800px;" href="TruckIn.txt">InBound</a></div>
+  <a style="position:absolute; top:500px; left:800px;" href="Matrix475.html">Remote</a></div>
+
+	<div style="position:absolute; top:400px; left:50px; width:80px;height:30px;border:0px solid #000;">Truck ID</div>
+	<div style="position:absolute; top:400px; left:300px; width:100px;height:30px;border:0px solid #000;">Field 1</div>
+	<div style="position:absolute; top:400px; left:620px; width:100px;height:30px;border:0px solid #000;">Field 2</div>
+	<div style="position:absolute; top:440px; left:50px; width:100px;height:30px;border:0px solid #000;">Truck Tare</div>
+	<input id="A" style="position:absolute; top:400px; left:120px; width:100px;height:30px;border:2px solid #000;">
+	<input id="B" style="position:absolute; top:400px; left:360px; width:240px;height:30px;border:2px solid #000;">
+	<input id="C" style="position:absolute; top:400px; left:680px; width:240px;height:30px;border:2px solid #000;">
+  	<button style="position:absolute; top:400px; left:950px; width:150px;height:30px;"onclick="sendall();">Submit ID</button>
+	<button style="position:absolute; top:440px; left:500px; width:150px;height:30px;"onclick="document.sendTare.submit();">Submit TARE</button>
+
+	<div class="centerDisplay" id="centerWeight">>0<</div>
+	<div class="motionDisplay" id="motionWeight">~</div>
+	<div class="weightDisplay" id="displayedWeight">888888</div>
+	<div class="unitsDisplay" id="units">lb</div>
+	<div class="setPoint1" id="sp1">SP1</div>
+	<div class="setPoint2" id="sp2">SP2</div>
+	<div class="setPoint3" id="sp3">SP3</div>
+	<div class="setPoint11" id="input1">In1</div>
+	<div class="setPoint12" id="input2">In2</div>
+	<div class="setPoint13" id="input3">In3</div>
+
+ </div>
+ </div>
+	
+    </div>
+</body>
+
+
+
+
+<form name="sendTare" action="http:set_var.cgi"  target=hole method="POST">
+  <input name="index" type="hidden" value="11"/> 
+  <input type="hidden" name="page" value="Truckscale.html"/>
+  <input type="text" size="8"  name="value" style="position:absolute; top:440px; left:200px; width:150px;height:30px;border:2px solid #000;" value =""/>
+</form>
+
+<form name="sendField" action="http:set_var.cgi" target=hole method="POST">
+  <input name="index" type="hidden" value="30"/> 
+  <input id="D" type="hidden" size="20" name="value" style="position:absolute; top:100px; left:810px; width:120px;height:30px;border:0px solid #000;" value=""/>
+  <input type="hidden" name="page" value="Truckscale.html"/>
+</form>
+
+
+  <img src="images/TRFFC10C.bmp" 
+  style="position:absolute; top:170px; left:50px; width:80px; height:80px; border:none;" 
+	id="Light1"	
+	alt="TF_1R"
+ 	title="Light1R" />
+
+  <img src="images/TRFFC10C.bmp"
+  style="position:absolute; top:170px; left:460px; width:80px; height:80px; border:none;"
+	id="Light2"	
+	alt="TF_2R"
+ 	title="Light2R" />
+
+
+
+<script type="text/javascript">
+
+   data_received = 0;
+
+function sendall(){
+x = document.getElementById('A').value + "," + document.getElementById('B').value + "," + document.getElementById('C').value;
+document.getElementById('D').value = x
+document.sendField.submit();
+}
+
+
+
+function getVariable(http_request, id) {
+      if ((http_request.readyState == 4) && (http_request.status == 200)) {
+         parseVariable(http_request.responseText, id);
+      }
+      data_received = 0;
+  }
+
+function parseVariable(data, variable_index) {
+      
+	  if (variable_index ==99) {
+	   
+    var appVarStr = JSON.parse(data) ; 
+	appVarValue = appVarStr.value ; 
+	var parsed = appVarValue.split("|");
+
+in1=parsed[0];
+in2=parsed[1];
+in3=parsed[2];
+setpt1 =  parsed[3] ; 
+setpt2 =  parsed[4] ; 
+setpt3 =  parsed[5] ; 
+displayedWeight= parsed[6] ; 
+units=parsed[7] ; 
+mode=parsed[8];
+motion=parsed[9];
+center=parsed[10];
+document.getElementById('displayedWeight').innerHTML = displayedWeight ;
+document.getElementById('units').innerHTML = units + "<BR>"+ mode ;
+}
+
+if (in1 ==0){
+	document.getElementById('input1').innerHTML = "OFF" ;
+} else{
+	document.getElementById('input1').innerHTML = " ON " ;
+}
+
+
+if (setpt1 ==0){
+	document.getElementById('sp1').innerHTML = "1 OFF" ;
+} else{
+	document.getElementById('sp1').innerHTML = "1 ON " ;
+	document.getElementById('Light1').src="images/TRFFC10A.bmp" ;
+	document.getElementById('Light2').src="images/TRFFC10A.bmp" ;
+
+}
+
+if (setpt2 ==0){
+	document.getElementById('sp2').innerHTML = "2 OFF" ;
+} else{
+	document.getElementById('sp2').innerHTML = "2 ON " ;
+	document.getElementById('Light1').src="images/TRFFC10C.bmp" ;
+	document.getElementById('Light2').src="images/TRFFC10C.bmp" ;
+
+}
+
+if (setpt3 ==0){
+	document.getElementById('sp3').innerHTML = "  " ;
+} else{
+	document.getElementById('sp3').innerHTML = " SP3 " ;
+}
+
+if (motion ==0){
+	document.getElementById('motionWeight').innerHTML = "  " ;
+} else{
+	document.getElementById('motionWeight').innerHTML = "Motion" ;
+}
+
+if (center ==1){
+	document.getElementById('centerWeight').innerHTML = ">0<" ;
+} else{
+	document.getElementById('centerWeight').innerHTML = "   " ;
+}
+
+}
+	
+ 
+   function pageLoop() {
+
+       if (!data_received) {
+	    makeRequest("get_var.cgi", getVariable, "index", 99);
+       }
+        myvar = window.setTimeout("pageLoop()", 500);
+        
+   }
+
+   window.onload = pageLoop;
+
+
+</script>
+
+
+</html>

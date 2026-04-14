@@ -1,0 +1,13 @@
+    Macro 9   Power-Up; Start Time: 5.185 s; Stack: 1 
+    Macro 3   Mac3; Start Time: 5.185 s; Stack: 0 
+80.1;3F%Q                   003:0009 
+4.1%Q                       003:0014 
+    Macro 3   Mac3; Start Time: 5.289 s; Stack: 0 
+80.1;3F%Q                   003:0009 
+4.1%Q                       003:0014 
+    Macro 3   Mac3; Start Time: 5.471 s; Stack: 0 
+80.1;3F%Q                   003:0009 
+4.1%Q                       003:0014 
+    Macro 3   Mac3; Start Time: 11.281 s; Stack: 0 
+80.1;3F%Q                   003:0009 
+4.1%Q                       003:0014 

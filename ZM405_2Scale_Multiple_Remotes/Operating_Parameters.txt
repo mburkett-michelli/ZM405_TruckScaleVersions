@@ -1,0 +1,4 @@
+Serial Port 1 outputs condec for scale 1 then scale 2 and then finally a total
+Serial Port 2 outputs condec for just the total.
+
+The main screen will always show the total of both scales.
